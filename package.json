@@ -1,6 +1,5 @@
 {
-  "homepage": "https://tofy708.github.io/ropa",
-  "name": "ropa",
+  "name": "miropa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,8 +14,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
