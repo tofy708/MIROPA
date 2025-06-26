@@ -7,10 +7,10 @@ import { HashRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
-const basename = process.env.NODE_ENV === 'production' ? '/MIROPA' : '';
+
 root.render(
   <React.StrictMode>
-    <HashRouter basename={basename}>
+    <HashRouter>
       <App />
     </HashRouter>
   </React.StrictMode>
