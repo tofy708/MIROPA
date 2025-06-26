@@ -24,7 +24,7 @@ function App() {
   const [compraExitosa, setCompraExitosa] = useState(false);
 
   // --- Pestanas ---
-  const [pestana, setPestana] = useState('tus'); // 'tus' o 'otros' o 'busqueda'
+  const [pestana, setPestana] = useState('otros'); // 'tus' o 'otros' o 'busqueda'
   
   // --- Búsqueda ---
   const [terminoBusqueda, setTerminoBusqueda] = useState('');
@@ -41,6 +41,12 @@ function App() {
 
   // Cargar usuario y productos globales al iniciar
   useEffect(() => {
+    // Crear cuenta admin permanente si no existe
+    const cuentas = JSON.parse(localStorage.getItem('miropa_cuentas')) || [];
+    if (!cuentas.find(u => u.nombre === 'admin')) {
+      cuentas.push({ nombre: 'admin', password: 'admin' });
+      localStorage.setItem('miropa_cuentas', JSON.stringify(cuentas));
+    }
     const user = JSON.parse(localStorage.getItem('miropa_usuario_activo'));
     if (user) setUsuario(user);
     const productosGuardados = JSON.parse(localStorage.getItem('miropa_productos_global')) || [];
@@ -154,6 +160,7 @@ function App() {
       localStorage.setItem('miropa_cuentas', JSON.stringify(cuentas));
       localStorage.setItem('miropa_usuario_activo', JSON.stringify(nuevaCuenta));
       setUsuario(nuevaCuenta);
+      setModalAuth(null);
     }
   };
 
