@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 
-const root = ReactDOM.render( <React.StrictMode> <HashRouter> <App /> </HashRouter> </React.StrictMode>, document.getElementById('root') );
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
 root.render(
   <React.StrictMode>
     <HashRouter>
