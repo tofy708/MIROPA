@@ -460,7 +460,9 @@ function App() {
       <div className="miropa-marquee-container">
         <div className="miropa-marquee">
           {Array.from({length: 30}).map((_, i) => (
-            <span className="miropa-marquee-title" key={i}>MIROPA</span>
+            <span className="miropa-marquee-title" key={i}>
+              MIROPA<span style={{fontSize: '0.6em', verticalAlign: 'sub', marginLeft: '2px'}}>®️</span>
+            </span>
           ))}
         </div>
       </div>
@@ -576,7 +578,9 @@ function App() {
                 </button>
               </div>
             </div>
-            <h1 className="titulo">MIROPA</h1>
+            <h1 className="titulo">
+              MIROPA<span style={{fontSize: '0.6em', verticalAlign: 'sub', marginLeft: '2px'}}>®️</span>
+            </h1>
             {!mostrarFavoritos && (
               <>
                 <div className="tabs-productos">
