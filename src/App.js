@@ -498,7 +498,7 @@ function App() {
                   background: '#d80404',
                   color: '#fff',
                   padding: '8px 16px',
-                  borderRadius: '12px',
+                  borderRadius: '0',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
@@ -574,7 +574,7 @@ function App() {
                 </div>
                 <button className="favoritos-btn" onClick={() => setMostrarFavoritos(!mostrarFavoritos)}>
                   <span style={{marginRight: 6}}>FAVORITOS</span>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill={mostrarFavoritos ? '#55b2b6' : 'none'} stroke="#55b2b6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill={mostrarFavoritos ? '#000' : 'none'} stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
                 </button>
               </div>
             </div>
@@ -782,7 +782,7 @@ function App() {
                           <div className="acciones">
                             {prod.creador !== usuario.nombre && pestana === 'otros' && (
                               <button type="button" className="bookmark-btn" onClick={() => toggleFavorito(productoIndex)} title={favoritos.includes(productoIndex) ? 'Quitar de favoritos' : 'Agregar a favoritos'}>
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill={favoritos.includes(productoIndex) ? '#55b2b6' : 'none'} stroke="#55b2b6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill={favoritos.includes(productoIndex) ? '#000' : 'none'} stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
                               </button>
                             )}
                             {prod.creador === usuario.nombre ? (
