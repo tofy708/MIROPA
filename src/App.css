@@ -28,15 +28,22 @@ body {
 }
 
 .titulo {
-  color: var(--negro);
+  background: #d80404;
+  color: #fff;
   text-align: center;
   font-size: 3rem;
   margin-bottom: 30px;
   letter-spacing: 2px;
   font-weight: 700;
   margin-top: 0;
-  padding-top: 40px;
+  padding: 40px 32px 20px 32px;
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+  border-radius: 0;
+  display: block;
+  box-shadow: 0 4px 16px rgba(216,4,4,0.12);
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 
 .formulario {
@@ -1065,11 +1072,13 @@ body {
 }
 
 .footer-section h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-size: 1.5rem;
+  background: #d80404;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
 .footer-section h4 {
