@@ -39,6 +39,36 @@ function App() {
   // --- Fade global al cerrar sesión ---
   const [fadeLogout, setFadeLogout] = useState(false);
 
+  // Función para obtener productos por defecto
+  const obtenerProductosPorDefecto = () => {
+    return [
+      {
+        nombre: 'Poleron 1',
+        precio: '25000',
+        descripcion: 'Poleron deportivo de alta calidad, perfecto para el día a día',
+        imagen: `${process.env.PUBLIC_URL}/poleron1.webp`,
+        talla: 'M',
+        creador: 'MIROPA'
+      },
+      {
+        nombre: 'Poleron 2',
+        precio: '30000',
+        descripcion: 'Poleron elegante con diseño moderno, ideal para ocasiones especiales',
+        imagen: `${process.env.PUBLIC_URL}/poleron2.webp`,
+        talla: 'L',
+        creador: 'MIROPA'
+      },
+      {
+        nombre: 'Camisa',
+        precio: '15000',
+        descripcion: 'Camisa clásica de algodón, perfecta para cualquier ocasión',
+        imagen: `${process.env.PUBLIC_URL}/camisa.webp`,
+        talla: 'S',
+        creador: 'MIROPA'
+      }
+    ];
+  };
+
   // Cargar usuario y productos globales al iniciar
   useEffect(() => {
     // Crear cuenta admin permanente si no existe
@@ -49,8 +79,18 @@ function App() {
     }
     const user = JSON.parse(localStorage.getItem('miropa_usuario_activo'));
     if (user) setUsuario(user);
+    
+    // Cargar productos del localStorage y agregar productos por defecto
     const productosGuardados = JSON.parse(localStorage.getItem('miropa_productos_global')) || [];
-    setProductos(productosGuardados);
+    const productosPorDefecto = obtenerProductosPorDefecto();
+    
+    // Debug: mostrar productos por defecto
+    console.log('Productos por defecto:', productosPorDefecto);
+    console.log('PUBLIC_URL:', process.env.PUBLIC_URL);
+    
+    // Combinar productos por defecto con productos guardados
+    const todosLosProductos = [...productosPorDefecto, ...productosGuardados];
+    setProductos(todosLosProductos);
   }, []);
 
   // Guardar productos globales en localStorage cada vez que cambian
@@ -262,6 +302,14 @@ function App() {
   };
 
   const handleEdit = (idx) => {
+    const productoAEditar = productos[idx];
+    
+    // Prevenir edición de productos por defecto
+    if (productoAEditar.creador === 'MIROPA') {
+      window.alert('No se pueden editar los productos por defecto de MIROPA.');
+      return;
+    }
+    
     setForm({ ...productos[idx] });
     setEditIndex(idx);
     setModalAbierto(true);
@@ -269,6 +317,14 @@ function App() {
   };
 
   const handleDelete = (idx) => {
+    const productoAEliminar = productos[idx];
+    
+    // Prevenir eliminación de productos por defecto
+    if (productoAEliminar.creador === 'MIROPA') {
+      window.alert('No se pueden eliminar los productos por defecto de MIROPA.');
+      return;
+    }
+    
     setProductos(productos.filter((_, i) => i !== idx));
     if (editIndex === idx) setEditIndex(null);
   };
@@ -372,14 +428,17 @@ function App() {
 
   const guardarProductosSeguro = (productosAGuardar) => {
     try {
-      localStorage.setItem('miropa_productos_global', JSON.stringify(productosAGuardar));
+      // Filtrar solo los productos que no son por defecto (no tienen creador 'MIROPA')
+      const productosUsuario = productosAGuardar.filter(prod => prod.creador !== 'MIROPA');
+      localStorage.setItem('miropa_productos_global', JSON.stringify(productosUsuario));
       return true;
     } catch (error) {
       if (error.name === 'QuotaExceededError') {
         // Intentar limpiar datos antiguos
         try {
           localStorage.removeItem('miropa_productos_global');
-          localStorage.setItem('miropa_productos_global', JSON.stringify(productosAGuardar));
+          const productosUsuario = productosAGuardar.filter(prod => prod.creador !== 'MIROPA');
+          localStorage.setItem('miropa_productos_global', JSON.stringify(productosUsuario));
           return true;
         } catch (cleanError) {
           window.alert('Error: No se puede guardar más productos. El almacenamiento está lleno.');
@@ -395,9 +454,11 @@ function App() {
 
   const limpiarAlmacenamiento = () => {
     if (window.confirm('¿Estás seguro de que quieres eliminar todos los productos? Esta acción no se puede deshacer.')) {
-      setProductos([]);
+      // Mantener solo los productos por defecto
+      const productosPorDefecto = obtenerProductosPorDefecto();
+      setProductos(productosPorDefecto);
       localStorage.removeItem('miropa_productos_global');
-      window.alert('Almacenamiento limpiado correctamente.');
+      window.alert('Almacenamiento limpiado correctamente. Los productos por defecto se mantienen.');
     }
   };
 
