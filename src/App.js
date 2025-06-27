@@ -595,7 +595,7 @@ function App() {
             {modalAbierto && (
               <div className="modal-fondo" onClick={cerrarModal}>
                 <div className="modal" onClick={e => e.stopPropagation()}>
-                  <h2 style={{ color: '#d80404', marginBottom: 18 }}>{editIndex !== null ? 'Editar Producto' : 'Agregar Producto'}</h2>
+                  <h2 style={{ background: '#d80404', color: '#fff', marginBottom: 18, padding: '8px 12px', borderRadius: '0', textAlign: 'center' }}>{editIndex !== null ? 'Editar Producto' : 'Agregar Producto'}</h2>
                   <form className="formulario" onSubmit={handleSubmit}>
                     <input
                       type="text"
@@ -650,7 +650,7 @@ function App() {
             {modalCompra.abierto && (
               <div className="modal-fondo" onClick={cerrarModalCompra}>
                 <div className="modal" onClick={e => e.stopPropagation()} style={{maxWidth: 400}}>
-                  <h2 style={{ color: '#d80404', marginBottom: 18 }}>Comprar producto</h2>
+                  <h2 style={{ background: '#d80404', color: '#fff', marginBottom: 18, padding: '8px 12px', borderRadius: '0', textAlign: 'center' }}>Comprar producto</h2>
                   <div style={{marginBottom: 12}}>
                     <b>{modalCompra.producto.nombre}</b><br/>
                     <span>Precio: {Number(modalCompra.producto.precio).toLocaleString('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 })}</span><br/>
