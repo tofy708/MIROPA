@@ -539,7 +539,7 @@ function App() {
                       color: '#fff',
                       border: 'none',
                       padding: '8px 16px',
-                      borderRadius: '8px',
+                      borderRadius: '0',
                       cursor: 'pointer',
                       fontWeight: '600',
                       fontSize: '0.9rem',
