@@ -314,7 +314,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .modal {
@@ -328,6 +328,7 @@ body {
   position: relative;
   animation: modalShow 0.18s ease;
   border: 2px solid #d80404;
+  z-index: 10001;
 }
 
 .modal h2 {
@@ -1212,7 +1213,7 @@ html, body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  z-index: 1000;
+  z-index: 10;
   box-shadow: 0 3px 8px rgba(0,0,0,0.3);
   border: none;
 }
