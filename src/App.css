@@ -133,6 +133,7 @@ body {
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  overflow-y: visible;
   scrollbar-width: thin;
   scrollbar-color: var(--rojo) transparent;
   padding-bottom: 8px;
@@ -169,11 +170,11 @@ body {
   align-items: center;
   justify-content: center;
   transition: border-color 0.18s;
-  margin: 0;
+  margin: 30px 0 0 0;
   border: 2.5px solid #d80404;
   flex-shrink: 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .producto:hover {
@@ -1193,5 +1194,26 @@ html, body {
 .formulario button,
 .formulario .custom-file-label {
   border-radius: 0 !important;
+}
+
+.producto-nombre-badge {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d80404;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  max-width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 1000;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  border: none;
 }
 

@@ -737,8 +737,10 @@ function App() {
                           const productoIndex = productos.indexOf(prod);
                           return (
                             <div className="producto" key={`favorito-${filaIdx}-${idx}`}>
+                              <div className="producto-nombre-badge">
+                                {prod.nombre}
+                              </div>
                               <img src={prod.imagen} alt={prod.nombre} className="imagen-producto" />
-                              <h2>{prod.nombre}</h2>
                               <p className="precio">{Number(prod.precio).toLocaleString('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 })}</p>
                               <p className="talla">Talla: {prod.talla}</p>
                               <p className="descripcion">{prod.descripcion}</p>
@@ -769,8 +771,10 @@ function App() {
                       const productoIndex = productos.indexOf(prod);
                       return (
                         <div className="producto" key={`${filaIdx}-${idx}`}>
+                          <div className="producto-nombre-badge">
+                            {prod.nombre}
+                          </div>
                           <img src={prod.imagen} alt={prod.nombre} className="imagen-producto" />
-                          <h2>{prod.nombre}</h2>
                           <p className="precio">{Number(prod.precio).toLocaleString('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 })}</p>
                           <p className="talla">Talla: {prod.talla}</p>
                           <p className="descripcion">{prod.descripcion}</p>
