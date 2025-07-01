@@ -137,7 +137,7 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--rojo) transparent;
   padding-bottom: 8px;
-  justify-content: space-between;
+  justify-content: center;
   padding-left: 18px;
   padding-right: 18px;
 }
