@@ -381,8 +381,8 @@ function App() {
       const productoComprado = modalCompra.producto;
       const indiceProducto = modalCompra.indice;
       
-      // Eliminar el producto comprado (solo si no es un producto por defecto)
-      if (indiceProducto !== null && indiceProducto !== -1 && productoComprado.creador !== 'MIROPA') {
+      // Eliminar el producto comprado (incluyendo productos por defecto)
+      if (indiceProducto !== null && indiceProducto !== -1) {
         const nuevosProductos = productos.filter((_, i) => i !== indiceProducto);
         setProductos(nuevosProductos);
       }
