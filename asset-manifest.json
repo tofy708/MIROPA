@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/MIROPA/static/css/main.487c9142.css",
-    "main.js": "/MIROPA/static/js/main.3db61972.js",
-    "static/js/453.926f08a5.chunk.js": "/MIROPA/static/js/453.926f08a5.chunk.js",
+    "main.css": "/MIROPA/static/css/main.cc3f0162.css",
+    "main.js": "/MIROPA/static/js/main.ab2c9937.js",
     "index.html": "/MIROPA/index.html",
-    "main.487c9142.css.map": "/MIROPA/static/css/main.487c9142.css.map",
-    "main.3db61972.js.map": "/MIROPA/static/js/main.3db61972.js.map",
-    "453.926f08a5.chunk.js.map": "/MIROPA/static/js/453.926f08a5.chunk.js.map"
+    "main.cc3f0162.css.map": "/MIROPA/static/css/main.cc3f0162.css.map",
+    "main.ab2c9937.js.map": "/MIROPA/static/js/main.ab2c9937.js.map"
   },
   "entrypoints": [
-    "static/css/main.487c9142.css",
-    "static/js/main.3db61972.js"
+    "static/css/main.cc3f0162.css",
+    "static/js/main.ab2c9937.js"
   ]
 }
